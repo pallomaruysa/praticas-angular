@@ -15,13 +15,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let pessoa of listaPessoa">
+            <td>{{pessoa.id}}</td>
+            <td>{{pessoa.nome}}</td>
+            <td>{{pessoa.sobrenome}}</td>
             <td>
               <button type="button" class="btn btn-info">editar</button> &nbsp;
-              <button type="button" class="btn btn-info">excluir</button>
+              <button type="button" class="btn btn-danger">excluir</button>
             </td>
           </tr>
         </tbody>
