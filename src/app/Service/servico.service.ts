@@ -1,3 +1,4 @@
+import { Pessoa } from './../Model/Pessoa/entidade/Pessoa';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,5 +14,9 @@ export class ServicoService {
 
   getPessoa(){
     return this.http.get<Pessoa[]>(this.urlBase)
+  }
+
+  addPessoa(pessoa: Pessoa){
+    return this.http.post<Pessoa>(this.urlBase, pessoa);
   }
 }
