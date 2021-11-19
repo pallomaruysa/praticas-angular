@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Pessoa } from './../entidade/Pessoa';
+import { ServicoService } from './../../../Service/servico.service';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -6,8 +8,15 @@ import { Component } from '@angular/core';
   templateUrl: './listar.component.html',
   styleUrls: ['./listar.component.css']
 })
-export class ListarComponent {
+export class ListarComponent implements OnInit{
 
-  constructor() { }
-
+  listaPessoa: Pessoa[] = [];
+  constructor(private service: ServicoService) { }
+  
+  ngOnInit(){
+    this.service.getPessoa()
+    .subscribe(data =>{
+      this.listaPessoa = data;
+    })
+  }
 }
